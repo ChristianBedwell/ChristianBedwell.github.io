@@ -1,0 +1,45 @@
+CREATE TABLE instructor(
+        emp_id varchar(20) NOT NULL,
+		first_name varchar(20) NOT NULL,
+		last_name varchar(20) NOT NULL,
+		constraint pk_emp_id primary key (emp_id)
+);
+
+CREATE TABLE classroom( 
+        room_number varchar(5) NOT NULL UNIQUE,
+		size smallint NOT NULL,
+		notes varchar(100),
+		constraint pk_room_number primary key (room_number)		
+);
+
+CREATE TABLE class( 
+        CRN varchar(10) NOT NULL UNIQUE,
+		enrollment smallint,
+		room_number varchar(5) NOT NULL UNIQUE,
+		emp_id varchar(20) NOT NULL,
+		constraint pk_CRN primary key (CRN),
+		constraint fk_room_number foreign key(room_number) 
+                         references classroom(room_number),
+        constraint fk_emp_id foreign key(emp_id) 
+                         references instructor(emp_id)
+);
+
+CREATE TABLE student( 
+        student_id varchar(20) NOT NULL UNIQUE,
+		first_name varchar(20) NOT NULL,
+		last_name varchar(20) NOT NULL,
+		constraint pk_student_id primary key (student_id)
+);
+
+CREATE TABLE student_class_junction_table( 
+        CRN varchar(10) NOT NULL UNIQUE,
+		student_id varchar(20) NOT NULL UNIQUE,
+		constraint fk_CRN foreign key(CRN) 
+                         references class(CRN),
+		constraint fk_student_id foreign key(student_id) 
+                         references student(student_id)
+);
+
+
+
+
