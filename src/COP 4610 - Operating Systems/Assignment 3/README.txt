@@ -1,1 +1,1 @@
-
+A synchronization case study using a garden as an example. There are three gardeners (Charles, Jordan, and Tracy), each of which perform operations such as planting, digging, and filling holes at various rates.
