@@ -1,6 +1,3 @@
-// 7495
-// Assignment #3
-// COP 4610 - CRN 80604
 
 import java.util.Random;
 
