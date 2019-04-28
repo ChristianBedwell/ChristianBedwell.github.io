@@ -1,0 +1,189 @@
+<!-- css style sheet for web application -->
+<style type='text/css'>
+body, html {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	background-image: linear-gradient(to bottom right, #2F0201, #BC786D) !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.user_card {
+	height: auto;
+	width: 500px;
+	margin-top: auto;
+	margin-bottom: auto;
+	background: #E9EAEE;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	padding: 10px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 5px;
+}
+
+.button_container {
+    margin-top: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+	margin-bottom: 20px;
+}
+
+.action_btn {
+	width: 100%;
+	background: #7D2821 !important;
+	color: white !important;
+}
+
+.action_btn:hover {
+	background: #97423B !important;
+}
+
+.action_btn:focus {
+	box-shadow: none !important;
+	outline: 0px !important;
+}
+
+.alert {
+	margin-top: 10px;
+	margin-left: 40px;
+	margin-right: 40px;
+}
+
+h1 {
+	padding-top: 15px;
+}
+</style>
+
+<!doctype html>
+<html lang = "en">
+	<head>
+		<title>Remotely-Controlled Catapult</title>
+		
+		<!-- import libraries for bootstrap framework -->
+		<script src = "//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<link href = "//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel = "stylesheet" id = "bootstrap-css">
+        <script src = "//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <link rel = "stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity = "sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	    <link rel = "stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity = "sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+		
+		<!-- set content type and size -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+	</head>
+	<body>
+		<script>
+		// function to disable the arm button from click events
+		function disableArmButton() {
+			document.addEventListener("DOMContentLoaded", function(event) {
+				document.getElementById("armButton").disabled = true;
+			});
+		}
+		
+		// function to disable the launch button from click events
+		function disableLaunchButton() {
+			document.addEventListener("DOMContentLoaded", function(event) {
+				document.getElementById("launchButton").disabled = true;
+			});
+		}
+		
+		// disable the arm and launch button by default when the application is launched
+		disableArmButton();
+		disableLaunchButton();		
+	
+		// function to send an HTTP GET request when the reload button is clicked
+		function reloadButtonClicked() {
+			console.log("Reload button has been clicked!");
+			var request = new XMLHttpRequest();
+		
+			// prompt user that reload button has been clicked
+			request.onreadystatechange = function() {
+				if(this.readyState == 4 && this.status == 200) {
+					document.getElementById("alert").innerHTML = "The catapult has been reloaded. You may arm the catapult.";
+				}
+			};
+			
+			// send HTTP GET request to web server
+			request.open("GET", "button_state?" + "reload", true);
+			request.send(null);
+		
+			// disable the reload and arm button from click events
+			reloadButton.disabled = true;
+			armButton.disabled = false;
+		}
+	
+		// function to send an HTTP GET request when the arm button is clicked
+		function armButtonClicked() {
+			console.log("Arm button has been clicked!");
+			var request = new XMLHttpRequest();
+		
+			// prompt user that arm button has been clicked
+			request.onreadystatechange = function() {
+				if(this.readyState == 4 && this.status == 200) {
+					document.getElementById("alert").innerHTML = "The catapult has been armed. You may launch the catapult. <br> <br> <strong><span style='color: #ff0000'>WARNING:</span></strong> The tension servo is currently drawing maximum current, so please do not remain in this state for long!";
+				}
+			};
+			
+			// send HTTP GET request to web server
+			request.open("GET", "button_state?" + "arm", true);
+			request.send(null);			
+		
+			// disable the arm and launch button from click events
+			armButton.disabled = true;
+			launchButton.disabled = false;
+		}
+	
+		// function to send an HTTP GET request when the launch button is clicked
+		function launchButtonClicked() {
+			console.log("Launch button has been clicked!");
+			var request = new XMLHttpRequest();
+		
+			// prompt user that launch button has been clicked
+			request.onreadystatechange = function() {
+				if(this.readyState == 4 && this.status == 200) {
+					document.getElementById("alert").innerHTML = "The catapult has been launched. You may reload the catapult.";
+				}
+			};
+			
+			// send HTTP GET request to web server
+			request.open("GET", "button_state?" + "launch", true);
+			request.send(null);
+		
+			// disable the launch and reload button from click events
+			launchButton.disabled = true;
+			reloadButton.disabled = false;
+		}
+		</script>
+		<div class="container h-100">
+			<div class = "d-flex justify-content-center h-100">
+				<div class = "user_card">
+					<center><h1 style = "font-family:Trebuchet MS;">Remotely-Controlled Catapult</h1></center>
+					<!-- catapult status message -->
+					<div class = "alert alert-info" id = "alert" role = "alert">
+						Welcome to the catapult controller! To get started, please click the reload button.
+					</div>
+					<!-- iframe to broadcast live stream from DaCast streaming provider -->
+					<center><iframe src="//iframe.dacast.com/b/126412/c/496171" width="400" height="300" frameborder="0" scrolling="no" allow="autoplay" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe></center>
+					<div class = "d-flex justify-content-center button_container">
+						<!-- reload button -->
+						<div class = "col-xs-4 col-sm-4 col-md-4">
+							<button type="button" id = "reloadButton" class = "btn action_btn" data-toggle="tooltip" data-placement="top" title="Clicking this button will open the PVC magazine, releasing a projectile into the chamber." onclick = "reloadButtonClicked()">Reload</button>
+						</div>
+						<!-- arm button -->
+						<div class = "col-xs-4 col-sm-4 col-md-4">
+							<button type="button" id = "armButton" class = "btn action_btn" data-toggle="tooltip" data-placement="top" title="Clicking this button will lock the catapult arm into place and provide tension to it." onclick = "armButtonClicked()">Arm</button>
+						</div>
+						<!-- launch button -->
+						<div class = "col-xs-4 col-sm-4 col-md-4">
+							<button type="button" id = "launchButton" class = "btn action_btn" data-toggle="tooltip" data-placement="top" title="Clicking this button will release the accumulated tension contained in the catapult arm and launch the projectile." onclick = "launchButtonClicked()">Launch</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
