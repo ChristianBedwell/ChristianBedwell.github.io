@@ -1,6 +1,6 @@
 Remotely-Controlled Catapult
 ==========================================================================
-The objective of this project is to apply the fundamentals of an embedded system to remotely control a catapult, launching small-scale projectiles via an Android device. The catapult project will fulfill a need to effectively reduce user intervention, such that the user won’t have to manually retract or lock the catapult arm into place but will only be required to reload the device. 
+The objective of this project is to apply the fundamentals of an embedded system to remotely control a catapult, launching small-scale projectiles via an Android device. The catapult project will fulfill a need to effectively reduce user intervention, such that the user won’t have to manually retract or lock the catapult arm into place but will only be required to reload the device. This is made possible by applying the latest technologies in software development, while emphasizing on a networked device.
 
 Android Application Source Code
 --------------------------------------------------------------------------
