@@ -4,7 +4,7 @@ The objective of this project is to apply the fundamentals of embedded systems d
 
 Android Application Source Code
 --------------------------------------------------------------------------
-Executable file (.apk) for the Android application, which provides input to the Arduino through button clicks. The Android application also displays system state when the device is not connected to a Bluetooth device or when a button click event is handled.
+The executable file (.apk) for the Android application, which provides input to the Arduino through button clicks. The Android application also displays system state when the device is not connected to a Bluetooth device or when a button click event is handled.
 
 Arduino Source Code
 --------------------------------------------------------------------------
