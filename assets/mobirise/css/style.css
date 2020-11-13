@@ -193,6 +193,7 @@
     max-width: 100%;
     overflow: hidden;
     position: relative;
+    
   }
   .mbr-figure--no-bg {
     background: none;
