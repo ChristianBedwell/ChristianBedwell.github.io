@@ -949,7 +949,9 @@ input[type="range"] {
 }
 .mbr-navbar--stuck .mbr-navbar__section,
 .mbr-navbar--relative .mbr-navbar__section {
-  background: #2E2E2E;
+  background: rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
 }
 @media (max-width: 991px) {
   .mbr-navbar--auto-collapse .mbr-navbar__container {
