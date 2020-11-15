@@ -50,6 +50,10 @@ body {
 .display-7 > .mbr-iconfont {
   font-size: 1.6rem;
 }
+.display-8 {
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.1rem;
+}
 /* ---- Fluid typography for mobile devices ---- */
 /* 1.4 - font scale ratio ( bootstrap == 1.42857 ) */
 /* 100vw - current viewport width */
@@ -148,7 +152,7 @@ body {
   border-radius: 40px;
   background: transparent;
   color: #FFFFFF !important;
-  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
   margin-left: -10px;
 }
 .btn-light:hover,
@@ -158,7 +162,7 @@ body {
   color: #000000 !important;
   background-color: #FFFFFF !important;
   border-color: #FFFFFF !important;
-  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
 }
 .btn-light.disabled,
 .btn-light:disabled {
@@ -172,7 +176,7 @@ body {
   border-color: #149dcc !important;
   border-radius: 40px;
   color: #ffffff !important;
-  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
   margin-left: -0px;
 }
 .btn-primary:hover,
@@ -182,7 +186,7 @@ body {
   color: #ffffff !important;
   background-color: #51badd !important;
   border-color: #51badd !important;
-  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
 }
 .btn-primary.disabled,
 .btn-primary:disabled {
@@ -537,7 +541,7 @@ a.text-danger:focus {
 }
 a.text-white:hover,
 a.text-white:focus {
-  color: #b3b3b3 !important;
+  color: #6cdaff !important;
 }
 a.text-black:hover,
 a.text-black:focus {
@@ -1499,7 +1503,7 @@ body {
   height: 64px;
   font-size: 32px;
   background-color: #149dcc;
-  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
   /* border: 2px solid #efefef; */
   border-radius: 50%;
 }
@@ -1508,7 +1512,7 @@ body {
   height: 64px;
   font-size: 32px;
   background-color: #51badd;
-  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
   /* border: 2px solid #efefef; */
   border-radius: 50%;
 }

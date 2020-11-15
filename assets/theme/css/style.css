@@ -345,7 +345,7 @@ nav .mbr-section-btn {
   align-items: center;
   -webkit-align-items: center;
   min-height: 100vh;
-  padding-top: 3rem;
+  padding-top: 7rem;
   padding-bottom: 3rem;
 }
 
@@ -863,6 +863,7 @@ input[type="range"] {
 }
 .mbr-navbar__item {
   display: block;
+  margin: -3px;
   float: left;
   position: relative;
 }
@@ -873,6 +874,7 @@ input[type="range"] {
   right: 0;
   top: 50%;
   z-index: 10000;
+  color: white;
 }
 .mbr-navbar--collapsed .mbr-navbar__container {
   position: relative;
@@ -947,7 +949,7 @@ input[type="range"] {
 }
 .mbr-navbar--stuck .mbr-navbar__section,
 .mbr-navbar--relative .mbr-navbar__section {
-  background: #149dcc;
+  background: #2E2E2E;
 }
 @media (max-width: 991px) {
   .mbr-navbar--auto-collapse .mbr-navbar__container {
